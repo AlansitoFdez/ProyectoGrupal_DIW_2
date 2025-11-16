@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<!-- Enlaces a bootstrap-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
+	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+	<style type="text/css">
+		body {
+			margin-left: 10px;
+		}
+
+		#formularios {
+			margin-top: 60px;
+		}
+	</style>
+	<title>GAG</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">GAG</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+				aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							Costumers
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Action</a></li>
+							<li><a class="dropdown-item" href="#">Another action</a></li>
+							<li>
+								<a class="dropdown-item" href="#">Something else here</a>
+							</li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							Wallets
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a class="dropdown-item" href="#" id="mnuAltaWallet">Register a Wallet</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="#" id="mnuBuscarWallet">Search Wallet by Customer
+									Phone</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="#" id="mnuListadoWallets">All Wallets From All
+									Customers</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="#" id="mnuListadoWalletsPorTipo">All Wallets By Type</a>
+							</li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							Stocks
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Action</a></li>
+							<li><a class="dropdown-item" href="#">Another action</a></li>
+							<li>
+								<a class="dropdown-item" href="#">Something else here</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container" id="formularios">
+		<div class="row">
+			<form class="form-horizontal d-none" name="frmAltaWallet" id="frmAltaWallet">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Alta de la Wallet</legend>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtAltaWalletNombre">Nombre de la Wallet</label>
+						<div class="col-xs-4">
+							<input id="txtAltaWalletNombre" name="txtAltaWalletNombre" class="form-control input-md"
+								type="text">
+
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtAltaWalletDescripcion">Descripción</label>
+						<div class="col-xs-4">
+							<input id="txtAltaWalletDescripcion" name="txtAltaWalletDescripcion"
+								class="form-control input-md" type="text">
+						</div>
+					</div>
+					<!-- Number input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtAltaWalletTelefono">Numero de Teléfono</label>
+						<div class="col-xs-4">
+							<input id="txtAltaWalletTelefono" name="txtAltaWalletTelefono" class="form-control input-md"
+								type="number">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="lstAltaWalletTipo">Tipo de Wallet</label>
+						<div class="col-xs-4">
+							<select class="form-select" name="lstAltaWalletTipo" id="lstAltaWalletTipo">
+
+							</select>
+						</div>
+					</div>
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnAceptarAltaWallet"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnAceptarAltaWallet" name="btnAceptarAltaWallet"
+								class="btn btn-primary" value="Aceptar" />
+						</div>
+					</div>
+				</fieldset>
+			</form>
+
+			<form class="form-horizontal d-none" name="frmBuscarWallet" id="frmBuscarWallet">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Buscar una Wallet por Nombre</legend>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtBuscarWallet">Nombre de la Wallet</label>
+						<div class="col-xs-4">
+							<input id="txtBuscarWallet" name="txtBuscarWallet" placeholder="Nombre de la Wallet"
+								class="form-control input-md" type="text" required>
+						</div>
+					</div>
+
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnBuscarWallet"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnBuscarWallet" name="btnBuscarWallet2" class="btn btn-primary"
+								value="Aceptar" />
+						</div>
+					</div>
+				</fieldset>
+			</form>
+
+			<form class="form-horizontal d-none" name="frmListadoWalletTipo" id="frmListadoWalletTipo">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Listado de Wallets por Tipo</legend>
+
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="lstWalletTipo">Tipo</label>
+						<div class="col-xs-4">
+							<select class="form-select" name="lstWalletTipo" id="lstWalletTipo">
+
+							</select>
+						</div>
+					</div>
+
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnAceptarListadoWalletPorTipo"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnAceptarListadoWalletPorTipo"
+								name="btnAceptarListadoWalletPorTipo" class="btn btn-primary" value="Aceptar" />
+						</div>
+					</div>
+				</fieldset>
+			</form>
+
+			<form class="form-horizontal d-none" name="frmModificarWallet" id="frmModificarWallet">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Modificar Wallet</legend>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtModIdWallet">IdWallet</label>
+						<div class="col-xs-4">
+							<input disabled id="txtModIdWallet" name="txtModIdWallet" class="form-control input-md"
+								type="text">
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtModNombreWallet">Nombre de la Wallet</label>
+						<div class="col-xs-4">
+							<input id="txtModNombreWallet" name="txtModNombreWallet" class="form-control input-md"
+								type="text">
+
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtModDescripcionWallet">Descripción</label>
+						<div class="col-xs-4">
+							<input id="txtModDescripcionWallet" name="txtModDescripcionWallet"
+								class="form-control input-md" type="text">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="lstModWalletTipo">Tipo</label>
+						<div class="col-xs-4">
+							<select class="form-select" name="lstModWalletTipo" id="lstModWalletTipo">
+
+							</select>
+						</div>
+					</div>
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnAceptarModWallet"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnAceptarModWallet" name="btnAceptarModWallet"
+								class="btn btn-primary" value="Aceptar" />
+						</div>
+					</div>
+
+				</fieldset>
+			</form>
+
+		</div>
+	</div>
+
+	<div class="container" id="resultadoBusqueda"></div>
+	<div class="container" id="listados"></div>
+
+	<script type="text/javascript" src="js/ajax.js"></script>
+	<script type="text/javascript" src="js/objetos.js"></script>
+	<script type="text/javascript" src="js/codigo.js"></script>
+</body>
+
+</html>
