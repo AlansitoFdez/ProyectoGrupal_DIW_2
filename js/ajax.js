@@ -1,6 +1,6 @@
 "use strict";
 
-const rutaBackend = "http://localhost/Proyecto-DIW-Stage2-pruebas/php/";
+const rutaBackend = "http://localhost/ProyectoGrupalDIW_2/ProyectoGrupalDIW_2/php/";
 
 /**
  * Realiza peticiones AJAX de tipo GET

@@ -21,7 +21,6 @@ if (mysqli_errno($conexion) != 0) {
     responder(null, true, "Se ha producido un error número $numerror que corresponde a: $descrerror <br>", $conexion);
 
 } else {
-    // Prototipo responder($datos,600600601$error,$mensaje,$conexion)
     responder(null, false, "Se ha dado de alta la wallet", $conexion);
 }
 ?>
