@@ -23,7 +23,8 @@ Proyecto de una aplicación web sencilla para la gestión financiera, dividida e
 
 ## Instalación y ejecución
 1. Enlace al repositorio: https://github.com/AlansitoFdez/ProyectoGrupal_DIW_2.git
-2. Credenciales para el config.php:
+2. Enlace al despliegue web: https://gagjs.great-site.net/
+3. Credenciales para el config.php:
     Nombre de la base de datos: gestoria_financiera
     Usuario: root
     Contraseña: test
