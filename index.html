@@ -32,19 +32,20 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<ul class="navbar-nav">
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-							aria-expanded="false">
-							Costumers
-						</a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Another action</a></li>
-							<li>
-								<a class="dropdown-item" href="#">Something else here</a>
-							</li>
-						</ul>
-					</li>
+					<!----------------------------------------------------------CLIENTES---------------------------------------------------->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menuClientes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Clientes
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" id="mnuAltaCliente">Alta cliente</a></li>
+                            <li><a class="dropdown-item" href="#" id="mnuBuscarCliente">Buscar cliente</a></li>
+                            <li><a class="dropdown-item" href="#" id="mnuListadoClientes">Listado de clientes</a></li>
+                            <li><a class="dropdown-item" href="#" id="mnuListadoClientesMoneda">Listado de clientes por moneda</a></li>
+                        </ul>
+                    </li>
+					
+					<!----------------------------------------------------------WALLETS---------------------------------------------------->
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
 							aria-expanded="false">
@@ -67,17 +68,18 @@
 							</li>
 						</ul>
 					</li>
+
+					<!----------------------------------------------------------STOCKS---------------------------------------------------->
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
 							aria-expanded="false">
 							Stocks
 						</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Another action</a></li>
-							<li>
-								<a class="dropdown-item" href="#">Something else here</a>
-							</li>
+							<li><a class="dropdown-item" href="#" id="mnuAltaStock">Register a Stock</a></li>
+							<li><a class="dropdown-item" href="#" id="mnuBuscarStock">Search Stock by Wallet Name</a></li>
+							<li><a class="dropdown-item" href="#" id="mnuListadoStocks">All Stocks</a></li>
+							<li><a class="dropdown-item" href="#" id="mnuListadoStockPorTipo">All Stocks By Type</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -87,6 +89,123 @@
 
 	<div class="container" id="formularios">
 		<div class="row">
+
+			 <form class="form-horizontal d-none" id="frmAltaCliente">
+                <fieldset>
+                    <legend>Alta de cliente</legend>
+                    <div class="form-group">
+                        <label class="control-label" for="txtNuevoNombreCliente">Nombre</label>
+                        <div>
+                            <input id="txtNuevoNombreCliente" name="txtNuevoNombreCliente" class="form-control" type="text" placeholder="Nombre" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="txtNuevoTelefono">Teléfono</label>
+                        <div>
+                            <input id="txtNuevoTelefono" name="txtNuevoTelefono" class="form-control" type="text" placeholder="Teléfono" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="txtNuevoFecha">Fecha de nacimiento</label>
+                        <div>
+                            <input id="txtNuevoFecha" name="txtNuevoFecha" class="form-control" type="date" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="lstNuevoMoneda">Moneda</label>
+                        <div>
+                            <select class="form-select" name="lstNuevoMoneda" id="lstNuevoMoneda"></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="button" id="btnAltaCliente" class="btn btn-primary" value="Aceptar">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+            <!-- Formulario buscar cliente -->
+            <form class="form-horizontal d-none" id="frmBuscarCliente">
+                <fieldset>
+                    <legend>Buscar cliente</legend>
+                    <div class="form-group">
+                        <label class="control-label" for="txtBuscarNombre">Nombre</label>
+                        <div>
+                            <input id="txtBuscarNombre" name="txtBuscarNombre" class="form-control" type="text" placeholder="Introduce nombre o parte" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="button" id="btnBuscarCliente" class="btn btn-primary" value="Buscar">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+            <!-- Formulario editar cliente -->
+            <form class="form-horizontal d-none" id="frmEditarCliente">
+                <fieldset>
+                    <legend>Editar cliente</legend>
+                    <div class="form-group">
+                        <label class="control-label" for="txtEditIdCliente">ID</label>
+                        <div>
+                            <input id="txtEditIdCliente" name="txtEditIdCliente" class="form-control" type="text" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="txtEditNombre">Nombre</label>
+                        <div>
+                            <input id="txtEditNombre" name="txtEditNombre" class="form-control" type="text" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="txtEditTelefono">Teléfono</label>
+                        <div>
+                            <input id="txtEditTelefono" name="txtEditTelefono" class="form-control" type="text" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="txtEditFecha">Fecha de nacimiento</label>
+                        <div>
+                            <input id="txtEditFecha" name="txtEditFecha" class="form-control" type="date" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="lstEditMoneda">Moneda</label>
+                        <div>
+                            <select class="form-select" name="lstEditMoneda" id="lstEditMoneda"></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="button" id="btnEditarCliente" class="btn btn-primary" value="Guardar cambios">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+            <!-- Formulario listado clientes POR MONEDA -->
+            <form class="form-horizontal d-none" id="frmListadoClientesMoneda">
+                <fieldset>
+                    <legend>Listado de clientes por moneda</legend>
+                    <div class="form-group">
+                        <label class="control-label" for="lstFiltroMoneda">Moneda</label>
+                        <div>
+                            <select class="form-select" name="lstFiltroMoneda" id="lstFiltroMoneda"></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="button" id="btnListadoClientesMoneda" class="btn btn-primary" value="Ver clientes">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+			<!--------------------------------------------------------WALLETS--------------------------------------------------->
+
+			<!-- FORMULARIO ALTA DE WALLETS -->
 			<form class="form-horizontal d-none" name="frmAltaWallet" id="frmAltaWallet">
 				<fieldset>
 					<!-- Form Name -->
@@ -136,6 +255,7 @@
 				</fieldset>
 			</form>
 
+			<!-- FORMULARIO BUSCAR WALLET -->
 			<form class="form-horizontal d-none" name="frmBuscarWallet" id="frmBuscarWallet">
 				<fieldset>
 					<!-- Form Name -->
@@ -160,6 +280,7 @@
 				</fieldset>
 			</form>
 
+			<!-- FORMULARIO LISTAR WALLET -->
 			<form class="form-horizontal d-none" name="frmListadoWalletTipo" id="frmListadoWalletTipo">
 				<fieldset>
 					<!-- Form Name -->
@@ -185,6 +306,7 @@
 				</fieldset>
 			</form>
 
+			<!-- FORMULARIO MODIFICAR WALLET -->
 			<form class="form-horizontal d-none" name="frmModificarWallet" id="frmModificarWallet">
 				<fieldset>
 					<!-- Form Name -->
@@ -236,11 +358,166 @@
 				</fieldset>
 			</form>
 
+			<!--------------------------------------------------------STOCKS--------------------------------------------------->
+
+			<!-- FORMULARIO ALTA DE STOCK-->
+			<form class="form-horizontal d-none" name="frmAltaStock" id="frmAltaStock">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Alta del Stock</legend>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtStockWalletName">Nombre de la Wallet:</label>
+						<div class="col-xs-4">
+							<input id="txtStockWalletName" name="txtStockWalletName" class="form-control input-md"
+								type="text">
+
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtNombreStock">Nombre del Stock:</label>
+						<div class="col-xs-4">
+							<input id="txtNombreStock" name="txtNombreStock"
+								class="form-control input-md" type="text">
+						</div>
+					</div>
+					<!-- Number input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="nmbCantidadStock">Cantidad:</label>
+						<div class="col-xs-4">
+							<input id="nmbCantidadStock" name="nmbCantidadStock" class="form-control input-md"
+								type="number">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="lstStockTipo">Tipo de Stock:</label>
+						<div class="col-xs-4">
+							<select class="form-select" name="lstStockTipo" id="lstStockTipo">
+
+							</select>
+						</div>
+					</div>
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnAceptarAltaStock"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnAceptarAltaStock" name="btnAceptarAltaStock"
+								class="btn btn-primary" value="Aceptar" />
+						</div>
+					</div>
+				</fieldset>
+			</form>
+
+			<!--BUSCAR STOCK POR EL NOMBRE-->
+			<form class="form-horizontal d-none" name="frmBuscarStock" id="frmBuscarStock">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Buscar un Stock por Nombre</legend>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtBuscarStockNombre">Nombre del Stock</label>
+						<div class="col-xs-4">
+							<input id="txtBuscarStockNombre" name="txtBuscarStockNombre" placeholder="Nombre del Stock"
+								class="form-control input-md" type="text" required>
+						</div>
+					</div>
+
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnBuscarStock"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnBuscarStock" name="btnBuscarStock" class="btn btn-primary"
+								value="Aceptar" />
+						</div>
+					</div>
+				</fieldset>
+			</form>
+
+			<!--LISTAR TODOS LOS STOCKS POR EL TIPO SELECCIONADO-->
+			<form class="form-horizontal d-none" name="frmListarStockTipo" id="frmListarStockTipo">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Elija el tipo de stock para listar</legend>
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="lstStockTipo">Tipo de Stock:</label>
+						<div class="col-xs-4">
+							<select class="form-select" name="lstStockTipo" id="lstStockTipo">
+
+							</select>
+						</div>
+					</div>
+
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnListarStocksTipo"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnListarStocksTipo" name="btnListarStocksTipo" class="btn btn-primary"
+								value="Aceptar" />
+						</div>
+					</div>
+				</fieldset>
+			</form>
+
+			<!--FORMULARIO MODIFICACION STOCK-->
+			<form class="form-horizontal d-none" name="frmModificarStock" id="frmModificarStock">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Modificar Stock</legend>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtModIdStock">Id del Stock</label>
+						<div class="col-xs-4">
+							<input disabled id="txtModIdStock" name="txtModIdStock" class="form-control input-md"
+								type="text">
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtModNombreStock">Nombre del stock</label>
+						<div class="col-xs-4">
+							<input id="txtModNombreStock" name="txtModNombreStock" class="form-control input-md"
+								type="text">
+
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="nmbModCantidadStock">Cantidad</label>
+						<div class="col-xs-4">
+							<input id="nmbModCantidadStock" name="nmbModCantidadStock"
+								class="form-control input-md" type="number">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="lstModStockTipo">Tipo</label>
+						<div class="col-xs-4">
+							<select class="form-select" name="lstModStockTipo" id="lstModStockTipo">
+
+							</select>
+						</div>
+					</div>
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnAceptarModStock"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnAceptarModStock" name="btnAceptarModStock"
+								class="btn btn-primary" value="Aceptar" />
+						</div>
+					</div>
+
+				</fieldset>
+			</form>
+
 		</div>
 	</div>
 
 	<div class="container" id="resultadoBusqueda"></div>
 	<div class="container" id="listados"></div>
+	<div class="container" id="resultadoListado"></div>
 
 	<script type="text/javascript" src="js/ajax.js"></script>
 	<script type="text/javascript" src="js/objetos.js"></script>
